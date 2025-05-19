@@ -1,7 +1,7 @@
 import axios from "axios";
 const config = {
   // baseURL: process.env.baseURL
-  baseURL: "http://localhost:8080/data/",
+  baseURL: "http://localhost:8081/data/",
   timeout: 1000,
   headers: {
     "Content-Type": "application/json",
