@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <!-- 引入 Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <title><%= htmlWebpackPlugin.options.title %></title>
+</head>
+<body>
+<noscript>
+  <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+</noscript>
+<div id="app"></div>
+<!-- 引入 Leaflet JavaScript -->
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<!-- 引入自定义的地图初始化脚本 -->
+<script src="map.js"></script>
+<!-- built files will be auto injected -->
+<script src="https://webapi.amap.com/maps?v=1.4.15&key=6e79f6d236e295632f21b385e363b6e8&plugin=AMap.Scale,AMap.ToolBar,AMap.ControlBar,AMap.DistrictLayer,AMap.MapType,AMap.TileLayer"></script>
+</body>
+</html>

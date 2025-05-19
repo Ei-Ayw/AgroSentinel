@@ -1,0 +1,72 @@
+<template>
+  <card-vue />
+  <card-vue />
+  <card-vue />
+  <div>
+    <div v-if="loading">
+      <LoadingIndicator />
+    </div>
+    <div v-else-if="error">
+      <p>加载数据时出错: {{ error }}</p>
+    </div>
+    <el-card v-else-if="gridData">
+      <h2>网格信息</h2>
+      <p>网格ID: {{ gridData.grid_id }}</p>
+      <p>风险等级: {{ gridData.risk_level }}</p>
+      <p>地区: {{ gridData.county }}</p>
+      <p>作物: {{ gridData.crop }}</p>
+      <h3>指标信息</h3>
+      <ul>
+        <li v-for="(value, key) in gridData.metrics" :key="key">
+          {{ key }}: {{ value }}
+        </li>
+      </ul>
+    </el-card>
+    <el-card v-else-if="anomalyData">
+      <h2>异常检测信息</h2>
+      <p>
+        霜冻信息: {{ anomalyData.frost.icon }}, 闪烁频率:
+        {{ anomalyData.frost.blink_rate }}ms, 活跃状态:
+        {{ anomalyData.frost.active }}
+      </p>
+      <h3>极端情况</h3>
+      <ul>
+        <!-- 这里可以添加极端情况的具体内容 -->
+      </ul>
+    </el-card>
+  </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from "vue";
+import { useRouter } from "vue-router";
+import { getGridDetails, getAnomalyData } from "@/api/map";
+import LoadingIndicator from "@/components/LoadingIndicator.vue";
+import CardVue from "@/components/cardVue.vue";
+
+const router = useRouter();
+const gridData = ref(null);
+const anomalyData = ref(null);
+const loading = ref(true);
+const error = ref(null);
+
+onMounted(async () => {
+  try {
+    const { gridId } = router.currentRoute.value.params;
+    const [gridRes, anomalyRes] = await Promise.all([
+      getGridDetails(gridId),
+      getAnomalyData(gridId),
+    ]);
+    gridData.value = gridRes.data;
+    anomalyData.value = anomalyRes.data;
+  } catch (err) {
+    error.value = err.message;
+  } finally {
+    loading.value = false;
+  }
+});
+</script>
+
+<style scoped>
+/* 可以在这里添加样式 */
+</style>

@@ -1,0 +1,21 @@
+// 响应式布局混合
+@mixin responsive-layout($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+// 按钮样式混合
+@mixin button-style($background-color, $text-color) {
+  background-color: $background-color;
+  color: $text-color;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: darken($background-color, 10%);
+  }
+}
