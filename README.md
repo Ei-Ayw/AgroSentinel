@@ -286,6 +286,6 @@ cangqiongzhijian-frontend/
 
 **如果这个项目对您有帮助，请给我们一个 Star！**
 
-Made with ❤️ by [Your Name]
+Made with ❤️ by Ei_Ayw
 
 </div>
