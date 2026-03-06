@@ -19,7 +19,7 @@ module.exports = defineConfig({
     // 跨域问题解决 代理（关键部分）
     proxy: {
       "/api1": {
-        target: "http://8.149.133.7:7999", // 第一个后端提供的真实接口
+        target: "http://localhost:7999", // 第一个后端提供的真实接口
         changeOrigin: true, // 允许跨域
         pathRewrite: {
           // 如果接口中是没有api1的，那就直接置空，'^/api1': ''，
