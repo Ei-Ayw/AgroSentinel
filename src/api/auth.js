@@ -4,7 +4,7 @@ import axios from "axios";
 export const register = async (data) => {
   // eslint-disable-next-line no-useless-catch
   try {
-    const response = await axios.post("http://8.149.133.7:7999/api/register/", {
+    const response = await axios.post("http://localhost:7999/api/register/", {
       username: data.username,
       password: data.password,
       email: data.email,
