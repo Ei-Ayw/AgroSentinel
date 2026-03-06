@@ -71,7 +71,7 @@ const goToOtherRoute = async () => {
 
 const handleSubmit = async () => {
   try {
-    const response = await axios.post("http://8.149.133.7:7999/api/login/", {
+    const response = await axios.post("http://localhost:7999/api/login/", {
       username: form.userAccount,
       password: form.userPassword,
     });
