@@ -28,10 +28,10 @@ let satelliteLayer = null;
 
 onMounted(() => {
   window._AMapSecurityConfig = {
-    securityJsCode: "84a54301cf6666f0aa5902821112c007",
+    securityJsCode: "YOUR_AMAP_SECURITY_CODE",
   };
   AMapLoader.load({
-    key: "ab9878869e4426f79d2a27546629ddf4",
+    key: "YOUR_AMAP_KEY",
     version: "2.0",
     plugins: ["AMap.Scale"],
   })
