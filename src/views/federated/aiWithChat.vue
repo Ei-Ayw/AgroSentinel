@@ -37,7 +37,7 @@ const sendMessage = async () => {
   messages.value.push({ sender: "你", text: userInput.value });
 
   try {
-    const response = await axios.post("http://8.149.133.7:7999/api/chat", {
+    const response = await axios.post("http://localhost:7999/api/chat", {
       message: userInput.value,
     });
 
